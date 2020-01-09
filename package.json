@@ -7,11 +7,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://https://github.com/mroads/react-native-modules.git",
-    "baseUrl": "https://https://github.com/mroads/react-native-modules"
-  },
   "keywords": [
     "react-native"
   ],
@@ -38,11 +33,15 @@
   "dependencies": {
     "native-base": "^2.13.8"
   },
-  "bugs": {
-    "url": "https://https://github.com/mroads/react-native-modules/issues"
-  },
-  "homepage": "https://https://github.com/mroads/react-native-modules#readme",
   "directories": {
     "example": "example"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mroads/react-native-button-wrapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mroads/react-native-button-wrapper/issues"
+  },
+  "homepage": "https://github.com/mroads/react-native-button-wrapper#readme"
 }

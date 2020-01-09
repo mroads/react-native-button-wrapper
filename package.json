@@ -1,0 +1,48 @@
+{
+  "name": "react-native-button-wrapper",
+  "title": "React Native Button Wrapper",
+  "version": "1.0.5",
+  "description": "TODO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://https://github.com/mroads/react-native-modules.git",
+    "baseUrl": "https://https://github.com/mroads/react-native-modules"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Vijay <vijaykrishna@mroads.com>",
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.59.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^4.5.3",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "react": "^16.8.3",
+    "react-native": "^0.59.10"
+  },
+  "dependencies": {
+    "native-base": "^2.13.8"
+  },
+  "bugs": {
+    "url": "https://https://github.com/mroads/react-native-modules/issues"
+  },
+  "homepage": "https://https://github.com/mroads/react-native-modules#readme",
+  "directories": {
+    "example": "example"
+  }
+}

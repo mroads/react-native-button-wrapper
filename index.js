@@ -9,6 +9,7 @@ import { TouchableOpacity } from 'react-native';
 export interface Props extends TouchableOpacity {
   onDoublePress?: Function;
   onPress?: Function;
+  useNativeBase?: boolean;
 }
 
 class ButtonWrapper extends React.Component<Props> {
@@ -20,8 +21,8 @@ class ButtonWrapper extends React.Component<Props> {
 
   onPressHandler = () => {
     const { onDoublePress, onPress } = this.props;
-    const supportsDoublePress = typeof onDoublePress === 'function';
-    const supportsSinglePress = typeof onPress === 'function';
+    const supportsDoublePress = onDoublePress && typeof onDoublePress === 'function';
+    const supportsSinglePress = onPress && typeof onPress === 'function';
     if (supportsDoublePress) {
       if (this.pressedOnce) {
         clearTimeout(this.timeout);

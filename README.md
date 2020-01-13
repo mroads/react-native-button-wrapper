@@ -14,10 +14,6 @@ or
 
 `$ yarn add react-native-button-wrapper`
 
-### Link the library
-
-`$ react-native link react-native-button-wrapper`
-
 ## Usage
 
 ### Props   
@@ -25,8 +21,9 @@ or
 
 | Prop           |     Default     |   Type   | Description                                                                                                 |
 | :------------- | :-------------: | :------: | :---------------------------------------------------------------------------------------------------------- |
-| onPress     |      () => {}       |  `function`  | This methods gets called if you click the button once. |
-| onDoublePress           |      () => {}       |  `function`  | This methods gets called if you click the button twice. |
+| onPress     |      () => {}       |  `function`  | Called when user clicked once.
+ |
+| onDoublePress           |      () => {}       |  `function`  | Called when user clicked twice. |
 | useNativeBase          |       false        | `bool` | If `true`, the wrapper will return the native base button component.                                                                              |
 
 ### Basic
@@ -38,7 +35,7 @@ function Button() {
   return (
     <ButtonWrapper
       onPress={() => {
-       <!--- gets called only once even if you clicked twice --->
+       <!--- Write your code here --->
       }}
      >
       <Text>Button</Text>              
@@ -58,10 +55,10 @@ function Button() {
     <ButtonWrapper
       useNativeBase
       onDoublePress={() => {
-       <!--- gets called when you double clicked on the button  --->
+       <!--- Write your code here --->
       }}
       onPress={() => {
-       <!--- gets called when you single clicked on the button --->
+       <!--- Write your code here --->
       }}
     >
       <Text>Button</Text>              

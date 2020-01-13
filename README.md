@@ -21,8 +21,7 @@ or
 
 | Prop           |     Default     |   Type   | Description                                                                                                 |
 | :------------- | :-------------: | :------: | :---------------------------------------------------------------------------------------------------------- |
-| onPress     |      () => {}       |  `function`  | Called when user clicked once.
- |
+| onPress     |      () => {}       |  `function`  | Called when user clicked once.|
 | onDoublePress           |      () => {}       |  `function`  | Called when user clicked twice. |
 | useNativeBase          |       false        | `bool` | If `true`, the wrapper will return the native base button component.                                                                              |
 

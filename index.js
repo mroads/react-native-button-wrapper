@@ -39,7 +39,7 @@ class ButtonWrapper extends React.Component<Props> {
       }
     } else {
       const newTime = new Date().getTime();
-      if (newTime - this.lastClickedAt > 200) {
+      if (newTime - this.lastClickedAt > 300) {
         if (supportsSinglePress) {
           onPress();
         }

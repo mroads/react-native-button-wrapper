@@ -29,6 +29,7 @@ export interface Props {
 
 const Button = (props: Props) => {
     const [isClicked, setIsClicked] = React.useState("");
+    const [count, setCount] = React.useState(0);
     const { button } = props;
     let styling = styles.nativeButtonWrapper;
     if (!button.useNativeBase) {
@@ -45,18 +46,29 @@ const Button = (props: Props) => {
                 <ButtonWrapper
                     useNativeBase={button.useNativeBase}
                     onPress={() => {
-                        setIsClicked("once");
-                        button.onPress();
+                        if (button.onPress) {
+                            setIsClicked("Single click");
+                            setCount(count + 1);
+                            button.onPress && button.onPress();
+                        }
                     }}
                     onDoublePress={() => {
-                        setIsClicked("twice");
-                        button.onDoublePress();
+                        if (button.onDoublePress) {
+                            setIsClicked("Double Click");
+                            setCount(count + 1);
+                            button.onDoublePress && button.onDoublePress();
+                        }
                     }}
                     style={styling}
                 >
                     <Text style={styles.textStyle}>Button</Text>
                 </ButtonWrapper>
-                {!!isClicked && <Text style={styles.clickedTextStyle}>Clicked {isClicked}</Text>}
+                {!!isClicked && <View style={{
+                    flexDirection: "column"
+                }}>
+                    <Text style={styles.clickedTextStyle}>{isClicked}</Text>
+                    {!button.hideCount && <Text style={styles.clickedTextStyle}>Clicked {count} times</Text>}
+                </View>}
             </View>
         </View>
     )
@@ -76,14 +88,14 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     nativeButtonWrapper: {
-        justifyContent: "space-between",
         marginTop: 20,
         backgroundColor: "red",
         paddingHorizontal: 20,
         borderRadius: 5
     },
     touchable: {
-        paddingVertical: 14    
+        paddingVertical: 14,
+        height: 45
     },
     textStyle: {
         color: "white",

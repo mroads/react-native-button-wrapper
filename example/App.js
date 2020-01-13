@@ -27,7 +27,8 @@ const App: () => React$Node = () => {
       },
       onDoublePress: () => {
         console.log("Native Base double Clicked")
-      }
+      },
+      hideCount: true
     },{
       title: "Touchable Button",
       useNativeBase: false,
@@ -36,6 +37,13 @@ const App: () => React$Node = () => {
       },
       onDoublePress: () => {
         console.log("Touchable double Clicked")
+      },
+      hideCount: true
+    },{
+      title: "Basic Button",
+      useNativeBase: false,
+      onPress: () => {
+        console.log("Touchable Clicked")
       }
     }]
   }

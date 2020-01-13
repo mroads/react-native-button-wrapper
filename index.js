@@ -34,7 +34,7 @@ class ButtonWrapper extends React.Component<Props> {
           if (supportsSinglePress) {
             onPress();
           }
-        }, 100);
+        }, 200);
         this.pressedOnce = true;
       }
     } else {

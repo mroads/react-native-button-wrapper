@@ -2,7 +2,7 @@
   "name": "react-native-button-wrapper",
   "title": "React Native Button Wrapper",
   "version": "1.0.8",
-  "description": "TODO",
+  "description": "Button Wrapper for React Native.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

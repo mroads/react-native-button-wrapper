@@ -12,7 +12,10 @@
     "button",
     "button wrapper",
     "native-base button",
-    "touchableOpacity"
+    "touchableOpacity",
+    "double press",
+    "double click",
+    "double tap"
   ],
   "author": "Vijay <vijaykrishna@mroads.com>",
   "license": "MIT",

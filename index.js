@@ -10,17 +10,47 @@ export interface Props extends TouchableOpacity {
   onDoublePress?: Function;
   onPress?: Function;
   useNativeBase?: boolean;
+  delay?: Number;
 }
 
 class ButtonWrapper extends React.Component<Props> {
   pressedOnce = false;
+  state = {
+    disabled: false,
+  };
+
+  componentWillMount() {
+    clearTimeout(this.delayTimeout);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    const { disabled: pdisabled } = this.state;
+    const { disabled } = nextProps;
+    if (!!disabled !== !!pdisabled) {
+      return true;
+    }
+    return false;
+
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    const { disabled:  pdisabled } = state;
+    const { disabled } = props;
+
+    if (!!disabled !== !!pdisabled) {
+      return {
+        disabled: !!disabled
+      }
+    }
+  }
 
   lastClickedAt = new Date().getTime();
 
   timeout: any;
+  delayTimeout: any;
 
   onPressHandler = () => {
-    const { onDoublePress, onPress } = this.props;
+    const { onDoublePress, onPress, delay = 500 } = this.props;
     const supportsDoublePress = onDoublePress && typeof onDoublePress === 'function';
     const supportsSinglePress = onPress && typeof onPress === 'function';
     if (supportsDoublePress) {
@@ -38,22 +68,35 @@ class ButtonWrapper extends React.Component<Props> {
         this.pressedOnce = true;
       }
     } else {
-      const newTime = new Date().getTime();
-      if (newTime - this.lastClickedAt > 200) {
-        if (supportsSinglePress) {
-          onPress();
-        }
+      if (supportsSinglePress) {
+        this.setState({
+          disabled: true,
+        });
+        this.delayTimeout = setTimeout(this.enableButton, delay);
+        onPress();
       }
-      this.lastClickedAt = newTime;
     }
   };
 
+  enableButton = () => {
+    this.setState({
+      disabled: false,
+    });
+    clearTimeout(this.delayTimeout);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.delayTimeout);
+  }
+
   render() {
-    const { useNativeBase = false, ...remainingProps } = this.props;
+    const { disabled } = this.state;
+    const { useNativeBase = false, style, disabled: propDisabled, ...remainingProps } = this.props;
+    const disabledStyle = disabled ? { opacity: 0.5 } : {};
     if (useNativeBase) {
-      return <Button {...remainingProps} onPress={this.onPressHandler} />;
+      return <Button {...remainingProps} style={[style, disabledStyle]} disabled={disabled} onPress={this.onPressHandler} />;
     }
-    return <TouchableOpacity {...remainingProps} onPress={this.onPressHandler} />;
+    return <TouchableOpacity {...remainingProps} style={[style, disabledStyle]} disabled={disabled} onPress={this.onPressHandler} />;
   }
 }
 export default ButtonWrapper;

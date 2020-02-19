@@ -16,7 +16,7 @@ export interface Props extends TouchableOpacity {
 class ButtonWrapper extends React.Component<Props> {
   pressedOnce = false;
 
-  lastClickedAt = new Date().getTime();
+  lastClickedAt = 0;
 
   timeout: any;
 

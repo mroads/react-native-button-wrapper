@@ -1,7 +1,7 @@
 {
   "name": "react-native-button-wrapper",
   "title": "React Native Button Wrapper",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Button Wrapper for React Native.",
   "main": "index.js",
   "scripts": {
